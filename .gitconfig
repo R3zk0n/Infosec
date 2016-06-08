@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+#	name = Lukas Symons
+#	email = rezkon93@gmail.com
+[user]
+	email = rezkon93@gmail.com
+[push]
+	default = simple
