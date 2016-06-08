@@ -31,6 +31,8 @@ infofile.write(banner)
 User_input = input("Find PTB ratio: \n")
 os.system('clear')
 print "Please wait...\n"
+def printbreak():
+	print "-"*50
 def yahooKeyStats(stock):
 	try:
 		#Sourcing the info from Yahoo
@@ -38,13 +40,24 @@ def yahooKeyStats(stock):
 		pbr = sourceCode.split('Price/Book (mrq):</td><td class="yfnc_tabledata1">')[1].split('</td>')[0]
 		PEG5 = sourceCode.split ('PEG Ratio (5 yr expected)<font size="-1"><sup>1</sup></font>:</td><td class="yfnc_tabledata1">')[1].split('</td>')[0]
 		if float(pbr) < float(User_input):
+			# Formatting and Stock and PBR. 
+			printbreak()
+			infofile.write("+"*50)
 			print "Stock:%s\n" % stock.upper()
+			printbreak()
 			print "price to book ratio:\n",pbr
-			infofile.write(str(stock.upper()+":"))
+			infofile.write("\nSTOCK: ")
+			infofile.write(str(stock.upper()+" \n"))
+			infofile.write("Price to Book Ratio: \n")
 			infofile.write(str(pbr)+"\n")
+			printbreak()
+			
 			print "PEG5:%s\n" % PEG5
+			print "+"*50
+			# PEG5 Method
+			infofile.write("\nPEG5: \n")
 			infofile.write(str(PEG5)+"\n")
-
+			infofile.write("+"*50)
 	# Except for error debugging
 	except Exception,e:
 		print "Failed in the main loop", str(e)
