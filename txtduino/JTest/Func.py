@@ -1,7 +1,7 @@
 import pyfirmata
 import sys
 #Defining Port Details
-#Updating..
+# Fix my lens.. 
 An_PINS = (0, 1, 2, 3)
 Led_Pin = 10
 Led_PinGreen = 13
