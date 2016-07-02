@@ -3,7 +3,8 @@
 import pyfirmata
 import sys
 #Defining Port Details
-
+# Needing to Add Servo function, Possible read of analong and parsing it as a string ?....
+# Ill fix it soon..enough..
 An_PINS = (0, 1, 2, 3)
 Led_Pin = 10
 Led_PinGreen = 13
