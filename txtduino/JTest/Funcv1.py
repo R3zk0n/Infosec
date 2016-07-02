@@ -1,5 +1,5 @@
 # Starting..
-
+#UPDATED... (Slightly.)
 import pyfirmata
 import sys
 #Defining Port Details
@@ -55,7 +55,7 @@ def Func_Light():
         for pin in An_PINS:
             print "Pin %i :: %s " % (pin, board.analog[pin].read())
     board.pass_time(1)
-
+#Testing........
 # Manully Selection..
 
 if Man == 1:
