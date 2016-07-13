@@ -3,13 +3,16 @@
 import pyfirmata
 import sys
 #Defining Port Details
-# Needing to Add Servo function, Possible read of analong and parsing it as a string ?....
-# Ill fix it soon..enough..
+# Code cleaning..
 An_PINS = (0, 1, 2, 3)
 Led_Pin = 10
 Led_PinGreen = 13
 Delay = 1
 
+# globals for sound.
+Piz = 8
+Dur = 300
+Notes = [261, 293, 320];
 PORT = '/dev/ttyACM0'
 print "Would you like to use default pins(10, 13) Or Manually set?\n"
 Man = input(" 1. Manually. 2. Default\n")
@@ -17,6 +20,18 @@ Man = input(" 1. Manually. 2. Default\n")
 
 
 #Functions!!  (SON!)
+def SoundFunction():
+    print "Welcome to Sound Testing fuunction"
+    for pin in Piz:
+        board.analog[pin].enable_reporting()
+        for i in range(1, 2000):
+            print "\n Sound: %i" % i
+            for pin in Piz:
+                print "Piz: %i :: %s " % (pin, board.analog[pin])
+
+def DigitalRead():
+
+
 def Func_Led():
     print '''Welcome to the LED Functions \n
             What function would you like to use?\n
