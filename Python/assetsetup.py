@@ -40,7 +40,7 @@ password = raw_input(bcolors.WARNING +"Do you have a password set for your sql, 
 
 db1 = MySQLdb.connect(host="localhost", user="root", passwd=password)
 cursor = db1.cursor()
-sql = 'create DATABASE testing'
+sql = 'create DATABASE assetnote'
 cursor.execute(sql)
 print "Database Created...\n"
 print bcolors.FAIL + "Doing some horrible hacking stuff...\n" + bcolors.ENDC
