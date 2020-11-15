@@ -1,12 +1,9 @@
+
 import requests
 import argparse
 from bs4 import BeautifulSoup
 import sqlite3
 import time
-
-
-
-
 
 
 # Assumptions.
@@ -31,7 +28,7 @@ def Database():
         print("Database Started")
 
 # this is super hacky away to ensure only new twits are printed out, however it does "Work"..
-def Twit(user, idx):
+def Twit(user, idx, sleep):
     con = sqlite3.connect('twitter.db')
     c = con.cursor()
     ctr = int(idx)
@@ -55,7 +52,7 @@ def Twit(user, idx):
                 con.commit()
         con.close()
     print("Checking for new twits..")
-    time.sleep(600)
+    time.sleep(sleep)
 
 
 
@@ -63,11 +60,13 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Twitter Bot')
     parser.add_argument('--user', required=True, type=str, help='Twitter User to scrap')
     parser.add_argument('--scrap', required=False, type=int, help='Number of Twits to Scrap')
+    parser.add_argument('--sleep', required=False, type=int, help='Time to wait between checks')
     args = parser.parse_args()
-    if args.user and args.scrap:
+    if args.user and args.scrap and args.sleep:
         Database()
         while True:
-            Twit(user=args.user, idx=args.scrap)
+            Twit(user=args.user, idx=args.scrap, sleep=args.sleep)
     else:
         Database()
-        Twit(user=args.user, idx=5)
+        Twit(user=args.user, idx=5, sleep=int(600))
+
